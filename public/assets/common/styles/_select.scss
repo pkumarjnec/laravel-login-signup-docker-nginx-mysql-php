@@ -1,0 +1,152 @@
+.select2 {
+  &-container {
+    &--default {
+      .select2-selection--single,
+      .select2-selection--multiple {
+        @include Fontformat($fontstyle-number, 16px, $spacing: 0.5px, $weight: 400);
+        -webkit-font-smoothing: auto;
+        color: $inputtext;
+        border: 1px solid #8b8b8b;
+        background-color: #FFFFFF;
+        border-radius: 4px;
+        margin-right: 5px;
+        outline: none;
+        min-width: 200px;
+        max-width: 100%;
+        min-height: 50px;
+        height: auto;
+        min-width: auto;
+        display: flex;
+        align-items: center;
+        .select2-selection__arrow {
+          height: 50px;
+          right: 7px;
+        }
+        .select2-selection__choice {
+          width: auto;
+          height: 27px;
+          border-radius: 13.5px;
+          border: 1px solid #8b8b8b;
+          border-right: 0;
+          background-color: #FFFFFF;
+          line-height: 25px;
+          padding: 0 30px;
+          position: relative;
+          border: none;
+          &__remove {
+            position: absolute;
+            right: 7px;
+          }
+        }
+        .select2-selection__rendered {
+          padding-left: 12px;
+          white-space: initial;
+          color: $inputtext;
+          height: 37px;
+          display: flex;
+          align-items: center;
+        }
+        .select2-selection__placeholder {
+          @include Fontformat($fontstyle-number, 13px, $spacing: 0.5px, $weight: 400);
+          color: $inputtext;
+        }
+      }
+      .select2-selection--multiple {
+        min-height: 100px;
+        height: auto;
+        max-height: 150px;
+        .select2-selection__rendered {
+          min-height: 100px;
+          height: auto;
+          max-height: 100px;
+          margin-bottom: 5px !important;
+          margin-top: 5px !important;
+          overflow-y: auto;
+          @include scrollbar();
+          display: block;
+          @include Fontformat($fontstyle-number, 13px, $spacing: 0.5px, $weight: 400);
+          color: $inputtext;
+          line-height: initial;
+          .select2-selection__choice {
+            margin-bottom: 5px !important;
+            margin-top: 5px !important;
+            background-color: #ffffff;
+            li {
+              margin-bottom: 10px !important;
+              margin-top: 10px !important;
+            }
+          }
+        }
+      }
+      &.select2-container--focus {
+        .select2-selection--multiple {
+          display: block;
+          border: 1px solid $inputborder;
+        }
+      }
+    }
+    .select2-dropdown {
+      border: 1px solid $inputborder;
+    }
+  }
+}
+
+.select2-container--default {
+  &.select2-container--below {
+    &.select2-container--open {
+      .selection {
+        .select2-selection {
+          &.select2-selection--single {
+            border: 1px solid $inputborder;
+            border-radius: 4px;
+            border-bottom: none;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+          }
+        }
+      }
+    }
+  }
+  &.select2-container--above {
+    &.select2-container--open {
+      .selection {
+        .select2-selection {
+          &.select2-selection--single {
+            border: 1px solid $inputborder;
+            border-radius: 4px;
+            border-top: none;
+          }
+        }
+      }
+    }
+  }
+  .select2 {
+    &-dropdown {
+      &.select2-dropdown--below {
+        border: 1px solid $inputborder;
+        border-radius: 0;
+        .select2-search__field {
+          border-radius: 4px;
+          outline: none;
+        }
+      }
+      &.select2-dropdown--above {
+        border: 1px solid $inputborder;
+        border-radius: 0;
+        .select2-search__field {
+          border-radius: 4px;
+          outline: none;
+        }
+      }
+      .select2-results {
+        .select2-results__options {
+          @include scrollbar();
+          .select2-results__option {
+            @include Fontformat($fontstyle-number, 13px, $spacing: 0.5px, $weight: 400);
+            color: $inputtext;
+          }
+        }
+      }
+    }
+  }
+}

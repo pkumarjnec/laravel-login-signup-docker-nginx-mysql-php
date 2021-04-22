@@ -1,0 +1,50 @@
+$font: 16px;
+
+//function to make a number unitless
+@function strip-unit($number) {
+    @if type-of($number)=='number' and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+    @return $number;
+}
+
+//function to px to rem or rem to px
+@function font-units($value) {
+    $font-new: strip-unit($font);
+    @if type-of($value)=="number" {
+        @if (unitless($value)) {
+            @return $value;
+        }
+        @else if unit($value)=="rem" {
+            @return #{($value / 1rem)*$font-new}px;
+        }
+        @else if unit($value)=="px" {
+            @return #{($value / 1px)/$font-new}rem;
+        }
+    }
+    @else {
+        @warn "Not a number value: #{$value}";
+        @return $value;
+    }
+}
+
+//multiple px to rem conversion
+@mixin rem($property, $px_values) {
+    $base: ($font / 1rem);
+    #{$property}: $px_values;
+    @if type-of($px_values)=='number' {
+        #{$property}: $px_values / $base;
+    }
+    @else {
+        $rem_values: ();
+        @each $value in $px_values {
+            @if $value==0 {
+                $rem_values: append($rem_values, $value);
+            }
+            @else {
+                $rem_values: append($rem_values, ($value / $base));
+            }
+        }
+        #{$property}: $rem_values;
+    }
+}

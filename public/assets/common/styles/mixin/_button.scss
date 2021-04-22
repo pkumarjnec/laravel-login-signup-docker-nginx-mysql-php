@@ -1,0 +1,58 @@
+@mixin FillButton($minwidth, $radius, $bg-color, $font-size, $color, $font-family: $fontstyle-headline, $font-weight: normal, $align: center, $outline:none) {
+    min-width: $minwidth;
+    border-radius: $radius;
+    background-color: $bg-color;
+    font-size: $font-size;
+    color: $color;
+    font-family: $font-family;
+    font-weight: $font-weight;
+    text-align: $align;
+    outline: $outline;
+    letter-spacing: 1px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-font-smoothing: auto;
+    line-height: 1;
+    padding: 0 15px;
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+        &:focus {
+            box-shadow: 0 0 0 2px rgba($bg-color, 0.5);
+        }
+    }
+    &:focus {
+        box-shadow: 0 0 0 2px rgba($bg-color, 0.5);
+    }
+}
+
+@mixin LineButton($minwidth, $radius, $bordercolor, $font-size, $color, $font-family: $fontstyle-headline, $font-weight: 500, $align: center, $outline:none) {
+    min-width: $minwidth;
+    border-radius: $radius;
+    font-size: $font-size;
+    color: $bordercolor;
+    font-family: $font-family;
+    font-weight: $font-weight;
+    text-align: $align;
+    outline: $outline;
+    letter-spacing: 1px;
+    border: 1px solid $bordercolor;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-font-smoothing: auto;
+    line-height: 1;
+    padding: 0 15px;
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+        &:focus {
+            box-shadow: none;
+        }
+    }
+    &:focus {
+        box-shadow: none;
+    }
+}

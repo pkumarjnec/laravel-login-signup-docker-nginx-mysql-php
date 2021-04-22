@@ -1,0 +1,134 @@
+.subtitle{
+    @include rem(margin-bottom, 24px);
+    p {
+        @include Fontformat($fontstyle-headline, 16px, $weight: 500);
+        color: #454342;
+        margin: 0;
+    }
+}
+.field{
+    line-height: 1;
+    margin-bottom: font-units(20px);
+    &.combofield{
+        label{
+            @include Fontformat($fontstyle-number, 14px);
+            @include rem(margin, 0 0 4px 0);
+            color: $labeltext;
+            width: 100%;
+            .red{
+              color: #d45265;
+            }
+        }
+    }
+    &.url{
+        .input{
+            &-group{
+                &-text{
+                    border: none;
+                    background-color: #a7c6d62b;
+                    border-radius: 0;
+                }
+                &-prepend{
+                    margin-right: 0px;
+                    border: none;
+                    .input-group-text{
+                        @include Fontformat($fontstyle-number, 14px);
+                        color: #6B6B6B;
+                        padding-right: 0;
+                        height: 40px;
+                    }
+                }
+                &-append{
+                    margin-right: 0px;
+                    border: none;
+                    margin-left: 0;
+                    display: block;
+                    .input-group-text{
+                        @include Fontformat($fontstyle-number, 14px);
+                        color: #6B6B6B;
+                        margin-left: 0;
+                        height: 40px;
+                    }
+                }
+            }
+        }
+    }
+}
+.fieldgroup{
+    line-height: 1;
+    .fieldgroup-more{
+        +.fieldgroup-more{
+            padding-left: 36px;
+        }
+    }
+    .col{
+        +.col{
+            padding-left: 36px;
+        }
+    }
+}
+.form{
+    &-group{
+        margin: 0;
+        label{
+            @include Fontformat($fontstyle-number, 14px, $spacing: 0.5px,$weight : 500);
+            @include rem(margin, 0 0 8px 0);
+            color: $labeltext;
+            .red{
+                color: #d45265;
+            }
+        }
+        .redactor{
+            &-box{
+                &.redactor-styles-on{
+                    background-color: $inputbg;
+                    border-radius: 0;
+                }
+                &.redactor-focus{
+                    background-color: #ffffff;
+                }
+            }
+            &-styles{
+                @include Fontformat($fontstyle-number, 13px, $spacing: 0.5px);
+                color: $inputtext;
+            }
+        }
+        .textarea-msgcount{
+            p{
+                @include Fontformat($fontstyle-number, 11px, $spacing: 0.5px);
+                @include rem(margin, 4px 0 0 0);
+                color: $labeltext;
+            }
+        }
+    }
+    &-control{
+        @include Fontformat($fontstyle-number, 16px, $spacing: 0.5px);
+        border: 1px solid #8b8b8b;
+        background-color: $inputbg;
+        box-shadow: none;
+        height: 50px;
+        color: $inputtext;
+        resize: none;
+        &:focus{
+            border: 0.5px solid $button;
+            box-shadow: none;
+            background-color: none;
+        }
+        &.is-invalid{  
+            background-image: none;  
+            &:focus{
+                box-shadow: none;
+            }
+        }
+        &::placeholder {
+            color: #95989a;
+            opacity: 0.6;
+            font-size: 16px;
+        }
+    }
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}

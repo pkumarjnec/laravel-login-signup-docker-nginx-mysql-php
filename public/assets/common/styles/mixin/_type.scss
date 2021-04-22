@@ -1,0 +1,28 @@
+@mixin Fontformat($family,$size,$weight:400,$style:normal,$stretch:normal,$height:normal,$spacing:0px){
+    font: {
+        family: $family;
+        size: font-units($size);
+        weight: $weight;
+        style: $style; 
+        stretch: $stretch; 
+    }
+    line: {
+        height: $height;  
+    }
+    letter-spacing: $spacing;
+    -webkit-font-smoothing: auto;
+}
+
+@mixin Fontstyle($color, $family, $size, $weight: 400, $style: normal, $stretch: normal, $height: normal, $spacing: normal) {
+    color: $color;
+    font: {
+        family: $family;
+        size: rems($size);
+        weight: $weight;
+        style: $style;
+        stretch: $stretch;
+    }
+    line-height: $height;
+    letter-spacing: $spacing;
+    -webkit-font-smoothing: auto;
+}

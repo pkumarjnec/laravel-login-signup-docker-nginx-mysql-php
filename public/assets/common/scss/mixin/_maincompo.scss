@@ -1,0 +1,129 @@
+@mixin maincompo($standeredsize: 290px, $transition: all 0.4s) {
+  .content {
+    width: calc(100% - #{font-units($standeredsize)});
+    background-color: #f0f3f7;
+    transition: $transition;
+    padding: 0;
+    margin: {
+      left: font-units($standeredsize);
+      top: 0;
+    }
+    @media (max-width: 575.98px) {
+      width: 100%;
+      margin: {
+        left: 0;
+      }
+    }
+    @media (min-width: 576px) and (max-width: 1200px) {
+      width: 100%;
+      margin: {
+        left: 0;
+      }
+    }
+    &.pusheffect {
+      width: calc(100% - #{font-units($standeredsize + 200px)});
+      perspective: 1500px;
+      transition: all 0.4s;
+      margin: {
+        left: font-units($standeredsize + 200px);
+      }
+    }
+    &.st-pusher {
+      position: relative;
+      left: 0;
+      z-index: 99;
+      height: auto;
+      perspective: 1000px;
+      transition: $transition;
+      &::after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.4);
+        transition: opacity 0.5s, width 0.3s 0.7s, height 0.3s 0.5s;
+      }
+    }
+    &-container {
+      min-height: font-units(750px);
+      transition: all 0.5s;
+      &-wrapper {
+        min-height: font-units(750px);
+      }
+      &.pusheffect-container {
+        transform: translate3d(0, 0, -50px);
+        transform-style: preserve-3d;
+        transition: $transition;
+      }
+      &--title {
+        @include rem(padding, 20px 20px 0);
+        .title {
+          h4 {
+            @include Fontformat($fontstyle-headline, 22px, $spacing: 1px);
+            color: #242424;
+            margin: 0;
+          }
+        }
+        .action {
+          display: flex;
+          .addproduct-btn {
+            @include FillButton(150px, 0, $button, 13px, #ffffff);
+            height: font-units(33px);
+            margin-left: 10px;
+          }
+        }
+      }
+      &--body {
+        @content;
+        .nodata {
+          margin: 24px 0;
+          padding: 24px 36px 0;
+          text-align: center;
+          &-container {
+            min-height: 600px;
+            background-color: #ffffff;
+          }
+          .promotion {
+            &-image {
+              width: 100%;
+              height: auto;
+              img {
+                height: 100%;
+                object-fit: contain;
+                width: 450px;
+                @media (max-width: 575.98px) {
+                  width: 100%;
+                }
+                @media (min-width: 576px) and (max-width: 1200px) {
+                  width: 100%;
+                }
+              }
+            }
+            &-message {
+              margin-bottom: 24px;
+              h4 {
+                @include Fontformat($fontstyle-headline, 24px, $weight: 400, $spacing: 1px);
+                color: #242424;
+                margin: 0;
+                @media (max-width: 575.98px) {
+                  font-size: 16px;
+                }
+                @media (min-width: 576px) and (max-width: 1200px) {
+                  font-size: 16px;
+                }
+              }
+            }
+            &-button {
+              .action-btn {
+                @include FillButton(auto, 0, $button, 13px, #ffffff);
+                height: font-units(28px);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

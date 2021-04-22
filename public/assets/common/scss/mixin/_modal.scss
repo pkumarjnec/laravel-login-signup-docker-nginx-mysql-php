@@ -1,0 +1,73 @@
+.modal {
+  height: 100%;
+  @include scrollbar();
+  &-dialog {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    @media (max-width: 575.98px) {
+      width: auto;
+      margin: 10% 0;
+    }
+    @media (min-width: 576px) and (max-width: 1200px) {
+      width: auto;
+      margin: 10% 0;
+    }
+    .close {
+      position: absolute;
+      top: -10px;
+      right: 10px;
+      padding: 0;
+      margin: 0;
+      border-radius: 0;
+      border: 2px solid #ccc;
+      height: 40px;
+      width: 40px;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+      pointer-events: auto !important;
+      cursor: pointer;
+      img {
+        height: 20px;
+        width: 20px;
+      }
+      @media (max-width: 575.98px) {
+        top: 0px;
+        right: 0px;
+        height: 30px;
+        width: 30px;
+      }
+      @media (min-width: 576px) and (max-width: 1200px) {
+        top: 0px;
+        right: 0px;
+        height: 30px;
+        width: 30px;
+      }
+    }
+  }
+  &-content {
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+  }
+  &-header {
+    padding: 0;
+    border: none;
+  }
+  &-body {
+    padding: 0;
+  }
+  &-footer {
+    padding: 0;
+    border: none;
+  }
+  &-backdrop {
+    &.show {
+      opacity: 0.9;
+    }
+    background-color: rgba(0, 0, 0, 1);
+  }
+}

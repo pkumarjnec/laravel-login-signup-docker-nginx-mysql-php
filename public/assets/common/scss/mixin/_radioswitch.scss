@@ -1,0 +1,71 @@
+@mixin Radioswitch($switchon-color, $switchoff-color) {
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 20px;
+        &-wrapper {
+            display: inline-flex;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 24px;
+            &:last-child {
+                margin: 0;
+            }
+            .text {
+                width: 80%;
+                padding-right: 20px;
+                p {
+                    @include Fontformat($fontstyle-text, 16px);
+                    color: #757575;
+                    margin-bottom: 0;
+                }
+            }
+            .setting {
+                width: 20%;
+                height: 20px;
+                label {
+                    margin-bottom: 0;
+                }
+            }
+        }
+        input {
+            display: none;
+        }
+    }
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $switchoff-color;
+        @include transition(.4s);
+        &:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 2px;
+            bottom: 2px;
+            background-color: $white;
+            @include transition(.4s);
+        }
+        &.round {
+            border-radius: 34px;
+            &:before {
+                border-radius: 50%;
+            }
+        }
+    }
+    input:checked+.slider {
+        background-color: $switchon-color;
+    }
+    input:focus+.slider {
+        box-shadow: 0 0 1px $switchon-color;
+    }
+    input:checked+.slider:before {
+        @include translateX(20px)
+    }
+}

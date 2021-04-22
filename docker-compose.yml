@@ -1,0 +1,55 @@
+version: '3'
+services:
+    app:
+        build:
+          context: .
+          dockerfile: Dockerfile
+        image: pkjnec/app
+        container_name: app
+        restart: unless-stopped
+        tty: true
+        environment:
+          SERVICE_NAME: app
+          SERVICE_TAGS: dev
+        working_dir: /var/www/html
+        volumes:
+          - ./:/var/www/html
+          - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+        networks:
+          - app-network
+    webserver:
+        image: pkjnec/nginx:alpine
+        container_name: webserver
+        restart: unless-stopped
+        tty: true
+        ports:
+          - "80:80"
+          - "443:443"
+        volumes:
+          - ./:/var/www/html
+          - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+        networks:
+          - app-network
+    redis:
+        image: pkjnec/redis:latest
+        container_name: redis-server
+        ports:
+            - "6380:6380"
+        networks:
+            - app-network
+    db:
+        image: mysql:5.7.22
+        container_name: db
+        restart: unless-stopped
+        environment:
+            MYSQL_DATABASE: ${DB_DATABASE}
+            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+            SERVICE_TAGS: dev
+            SERVICE_NAME: mysql
+        ports:
+            - "33060:33060"
+        networks:
+            - app-network
+networks:
+  app-network:
+    driver: bridge

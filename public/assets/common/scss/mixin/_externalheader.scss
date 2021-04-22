@@ -1,0 +1,702 @@
+header{
+  position: fixed;
+  width: 100%;
+  height: font-units(55px);
+  border-bottom: 0.5px solid #e8e7e7;
+  @include z-index(header);
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  .navbar{
+      height: font-units(55px);
+      @include rem(padding, 0px 16px);
+      border-bottom: 0.5px solid #e8e7e7;
+      background-color: #ffffff;
+      .header-logo{
+          padding: 0;
+          line-height: 1;margin-right: font-units(40px);
+          img{
+              height: font-units(20px);
+              width: auto;
+              @media (max-width: 575.98px) {
+                  height: font-units(25px);
+              }
+          }
+          &.short{
+              margin-right: 0px;
+          }
+          &.arrow{
+              margin: 0 20px;
+          }
+      }
+      &-nav{
+          .nav{
+              &-item{
+                  margin-right: font-units(30px);
+                  &.show{
+                      a{
+                          &:after {
+                              transform: rotate(180deg);
+                          }
+                      }
+                  }
+                  a{
+                      &:after {
+                          color: #696969;
+                          margin: {
+                              top:font-units(4px);
+                              left: font-units(4px);
+                          }
+                      }
+                  }
+              }
+              &-link{
+                  @include Fontformat($fontstyle-headline, 14px, $weight: 500);
+                  text-decoration: none;
+                  color: #242424;
+                  cursor: pointer;
+                  padding: {
+                      top: 0 !important;
+                      left: 0 !important;
+                      bottom: 0 !important;
+                      right: 0 !important;
+                  }
+                  &:hover {
+                      color: #242424;
+                  }
+                  
+              }
+          }
+      }
+      .left-items,
+      .right-items{
+          .dropdown-menu {
+              border-radius: 0;
+              @include rem(padding, 0 15px 15px);
+              box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+              border: 0;
+              margin: {
+                  top: font-units(20px);
+              }
+              .product-list {
+                  .submenu{
+                      border-bottom: 1px solid #ccc;
+                      margin-bottom: font-units(10px);
+                      p{
+                          @include Fontformat($fontstyle-headline, 10px, $height: 1.1);
+                          color: #000000;
+                          margin-bottom: 5px;
+                      }
+                  }
+                  .item {
+                      text-decoration: none;
+                      cursor: default;
+                      margin: {
+                          top: font-units(15px);
+                      }
+                      &-parent{
+                          border: 1px solid #7b68ee;
+                          background-color: #ffffff;
+                          margin-bottom: font-units(16px);
+                          text-decoration: none;
+                          @include rem(padding, 14px);
+                          p{
+                              @include Fontformat($fontstyle-headline, 18px, $weight: 800, $height: 1.17);
+                              color: #212121;
+                              margin: 0;
+                          }
+                          &:hover{
+                              box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+                          }
+                      }
+                      &-container {
+                          height: font-units(100px);
+                          @include rem(padding, 10px 0);
+                          margin-bottom: font-units(15px);
+                          &:hover {
+                              cursor: pointer;
+                              background-color: #f4f5ff;
+                          }
+                          .sprite-image {
+                              height: font-units(44px);
+                              width: font-units(44px);
+                              display: flex;
+                              background-repeat: no-repeat;
+                              align-items: center;
+                              margin: 0 auto 10px;
+                              &.event-website{
+                                  background: url('../../../../explara/image/menu-spritesheet.svg') -7px -240px;
+                              }
+                              &.ticket-sales-management{
+                                  background: url('../../../../explara/image/menu-spritesheet.svg') -7px -289px;
+                              }
+                              &.attendee-management{
+                                  background: url('../../../../explara/image/menu-spritesheet.svg') -7px -335px;
+                              }
+                              &.payment-processing{
+                                  background: url('../../../../explara/image/menu-spritesheet.svg') -7px -383px;
+                              }
+                              &.promotions-marketing{
+                                  background: url('../../../../explara/image/menu-spritesheet.svg') -7px -428px;
+                              }
+                              &.team-collaboration{
+                                  background: url('../../../../explara/image/menu-spritesheet.svg') -7px -473px;
+                              }
+                              &.data-report{
+                                  background: url('../../../../explara/image/menu-spritesheet.svg') -7px -521px;
+                              }
+                              &.manage-report{
+                                  background: url('../../../../explara/image/menu-spritesheet.svg') -7px -521px;
+                              }
+                              &.apps-integration{
+                                  background: url('../../../../explara/image/menu-spritesheet.svg') -7px -1144px;
+                              }
+                              &.online-store{
+                                  background: url('../../../../explara/image/menu-spritesheet.svg') -7px -0px;
+                              }
+                              &.subscription{
+                                  background: url('../../../../explara/image/menu-spritesheet.svg') -7px -48px;
+                              }
+                              &.payment-link {
+                                  background: url('../../../../explara/image/menu-spritesheet.svg') -7px -95px;
+                              }
+                              &.email-marketing{
+                                  background: url('../../../../explara/image/menu-spritesheet.svg') -7px -144px;
+                              }
+                              &.invoicing{
+                                  background: url('../../../../explara/image/menu-spritesheet.svg') -7px -192px;
+                              }
+                              &.crowdfunding-page{
+                                  background: url('../../../../explara/image/menu-spritesheet.svg') -7px -240px;
+                              }
+                              &.fundraising-management{
+                                  background: url('../../../../explara/image/menu-spritesheet.svg') -7px -568px;
+                              }
+                              &.donor-management{
+                                  background: url('../../../../explara/image/menu-spritesheet.svg') -7px -335px;
+                              }
+                              &.email-campaigns{
+                                  background: url('../../../../explara/image/menu-spritesheet.svg') -7px -664px;
+                              }
+                              &.group-events{
+                                  background: url('../../../../explara/image/menu-spritesheet.svg') -7px -616px;
+                              }
+                              &.name-badge{
+                                  background: url('../../../../explara/image/menu-spritesheet.svg') -7px -713px;
+                              }
+                              &.survey{
+                                  background: url('../../../../explara/image/menu-spritesheet.svg') -7px -761px;
+                              }
+                              &.event-mobile-app{
+                                  background: url('../../../../explara/image/menu-spritesheet.svg') -7px -809px;
+                              }
+                              &.check-in-app{
+                                  background: url('../../../../explara/image/menu-spritesheet.svg') -7px -1574px;
+                              }
+                              &.point-of-sale{
+                                  background: url('../../../../explara/image/menu-spritesheet.svg') -7px -857px;
+                              }
+                              &.submix{
+                                  background: url('../../../../explara/image/menu-spritesheet.svg') -7px -905px;
+                              }
+                              &.merchandise{
+                                  background: url('../../../../explara/image/menu-spritesheet.svg') -7px -952px;
+                              }
+                              &.stay-travel{
+                                  background: url('../../../../explara/image/menu-spritesheet.svg') -7px -1002px;
+                              }
+                          }
+                      }
+                      img {
+                          display: flex;
+                          margin: auto;
+                          margin-bottom: font-units(10px);
+                          height: font-units(44px);
+                          width: font-units(44px);
+                          object-fit: contain;
+                      }
+                      p {
+                          @include Fontformat($fontstyle-headline, 12px, $weight: 500, $height: 1.17);
+                          color: #000000;
+                          text-align: center;
+                          margin: 0;
+                      }
+                  }
+              }
+              &.allproduct {
+                  &-menu {
+                      position: absolute;
+                      left: 0;
+                      top: font-units(17px);
+                      min-height: font-units(450px);
+                      width: font-units(800px);
+                      padding: 0;
+                      @media (min-width: 992px) and (max-width: 1199.98px) {
+                          left: font-units(-100px);
+                      }
+                      &.ev-short{
+                          min-height: auto;
+                          width: font-units(600px);
+                      }
+                  }
+              }
+              &.resources-menu {
+                  min-height: auto;
+                  width: 480px;
+                  position: absolute;
+                  left: 0;
+                  top: font-units(17px);
+                  .list{
+                      padding: font-units(10px);
+                      margin-top: font-units(20px);
+                      cursor: pointer;
+                      text-decoration: none;
+                      &:hover{
+                          background-color: #f4f3ff;
+                      }
+                      .image{
+                          height: font-units(44px);
+                          width: font-units(44px);
+                          background-repeat: no-repeat;
+                          margin-right: font-units(15px);
+                          &.help{
+                              background: url('../../../../explara/image/menu-spritesheet.svg') -7px -1240px;
+                          }
+                          &.blog{
+                              background: url('../../../../explara/image/menu-spritesheet.svg') -7px -1337px;
+                          }
+                      }
+                      p{
+                          @include Fontformat($fontstyle-headline, 15px, $weight: 500, $height: 1.2);
+                          color: #212121;
+                          margin: 0;
+                      }
+                  }
+              }
+          }
+          .allproduct {
+              &-list {
+                  &_container {
+                      height: 100%;
+                      .tab-section {
+                          .tab {
+                              &-menu {
+                                  min-height: font-units(450px);
+                                  @include rem(padding, 20px 0);
+                                  .list-group {
+                                      &-item {
+                                          @include rem(padding, 15px);
+                                          border: none;
+                                          @include Fontformat($fontstyle-headline, 16px, $height: 1.3, $weight: 400);
+                                          color: #000000;
+                                          &.active {
+                                              background-color: #f4f3ff;
+                                          }
+                                      }
+                                  }
+                              }
+                              &-data {
+                                  @include rem(padding, 24px 24px);
+                                  position: relative;
+                                  .product-list {
+                                      .item {
+                                          text-decoration: none;
+                                          margin: {
+                                              top: 0;
+                                          }
+                                      }
+                                  }
+                                  .enterprise{
+                                      position: absolute;
+                                      width: 100%;
+                                      margin-left: font-units(-24px);
+                                      bottom: 0;
+                                      background-color: #f4f3ff;
+                                      @include rem(padding, 13px);
+                                      cursor: pointer;
+                                      text-decoration: none;
+                                      label{
+                                          @include Fontformat($fontstyle-headline, 18px, $weight: 800, $height: 1.17);
+                                          color: #212121;
+                                          margin-bottom: font-units(8px);
+                                          cursor: pointer;
+                                      }
+                                      p{
+                                          @include Fontformat($fontstyle-headline, 10px, $height: 1.1);
+                                          color: #212121;
+                                          margin: 0;
+                                          cursor: pointer;
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      }
+      .right-items{
+          display: flex;
+          align-items: center;
+          .dropdown-menu {
+              &.allproduct {
+                  &-menu {
+                      right: 0 !important;
+                      left: auto;
+                  }
+              }
+          }
+          .btn-action{
+              margin-right: 0;
+          }
+          .signup-btn{
+              @include FillButton(140px, 20px, #7273d7, 14px, #ffffff);
+              @include rem(padding, 9px 24px);
+              height: font-units(32px);
+              text-decoration: none;
+          }
+      }
+      .barformobile{
+        line-height: 0;
+        span{
+          font-size: 30px;
+          cursor: pointer;
+          color: #7273d7;
+          line-height: 0;
+        }
+      }
+  }
+  .sub-header{
+    position: fixed;
+    width: 100%;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    .product-nav {
+      background-color: #ffffff;
+      width: 100%;
+      height: 40px;
+      padding: {
+        left: 60px;
+        right: 60px;
+      }
+      @media (max-width: 575.98px) {
+        padding: {
+          left: 20px;
+          right: 20px;
+        }
+      }
+      @media (min-width: 576px) and (max-width: 767.98px) {
+        padding: {
+          left: 20px;
+          right: 20px;
+        }
+      }
+      &_container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        .right-content {
+          a {
+            margin: {
+              left: 30px;
+            }
+          }
+        }
+        a {
+          @include Fontformat($fontstyle-headline, 14px, $weight: 500);
+          text-decoration: none;
+          color: #242424;
+          margin: 0;
+          cursor: pointer;
+          &:hover {
+            color: #242424;
+          }
+        }
+      }
+    }
+  }
+}
+.mobilesidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1010;
+  top: 0;
+  right: 0;
+  background-color: #ffffff;
+  overflow-x: hidden;
+  transition: 0.5s;
+  &.showmobilesidenav {
+    width: 100%;
+  }
+  .closeaction {
+    position: absolute;
+    top: 18px;
+    right: 9px;
+    font-size: 40px;
+    margin-left: 50px;
+    z-index: 1020;
+    line-height: 0;
+    .closebtn {
+      color: #242424;
+      cursor: pointer;
+    }
+  }
+  &-container {
+    padding: 36px;
+    height: 650px;
+    overflow-y: auto;
+    position: relative;
+    overflow-x: hidden;
+    .accordion {
+      .card {
+        border: none;
+        margin-bottom: font-units(20px);
+        a {
+          @include Fontformat($fontstyle-headline, 13px, $weight: 500);
+          color: #242424;
+          text-decoration: none;
+          margin: 0;
+          cursor: pointer;
+          padding: 0;
+          &:hover {
+            color: #242424;
+          }
+          span {
+            margin-left: auto;
+            img {
+              height: font-units(5px);
+              width: font-units(8px);
+              transition: transform 0.2s ease;
+            }
+          }
+        }
+        &-header {
+          padding: 0;
+          background-color: transparent;
+          border-bottom: none;
+          margin-bottom: auto;
+        }
+        &-body {
+          margin-top: 15px;
+          background-color: #f4f3ff;
+          padding: 0 15px 15px;
+          .product-list {
+            .item {
+              text-decoration: none;
+              margin: {
+                top: 15px;
+              }
+              &-parent{
+                  border: 1px solid #7b68ee;
+                  background-color: #ffffff;
+                  margin-bottom: font-units(16px);
+                  text-decoration: none;
+                  @include rem(padding, 14px);
+                  p{
+                      @include Fontformat($fontstyle-headline, 12px, $weight: 800, $height: 1.17);
+                      color: #212121;
+                      margin: 0;
+                  }
+                  &:hover{
+                      box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+                  }
+              }
+              &-container {
+                height: 100px;
+                padding: 10px 0;
+                &:hover {
+                    cursor: pointer;
+                    background-color: #ffffff;
+                }
+                .sprite-image {
+                    height: font-units(44px);
+                    width: font-units(44px);
+                    display: flex;
+                    background-repeat: no-repeat;
+                    align-items: center;
+                    margin: 0 auto 10px;
+                    &.event-website{
+                        background: url('../../../../explara/image/menu-spritesheet.svg') -7px -240px;
+                    }
+                    &.ticket-sales-management{
+                        background: url('../../../../explara/image/menu-spritesheet.svg') -7px -289px;
+                    }
+                    &.attendee-management{
+                        background: url('../../../../explara/image/menu-spritesheet.svg') -7px -335px;
+                    }
+                    &.payment-processing{
+                        background: url('../../../../explara/image/menu-spritesheet.svg') -7px -383px;
+                    }
+                    &.promotions-marketing{
+                        background: url('../../../../explara/image/menu-spritesheet.svg') -7px -428px;
+                    }
+                    &.team-collaboration{
+                        background: url('../../../../explara/image/menu-spritesheet.svg') -7px -473px;
+                    }
+                    &.data-report{
+                        background: url('../../../../explara/image/menu-spritesheet.svg') -7px -521px;
+                    }
+                    &.online-store{
+                        background: url('../../../../explara/image/menu-spritesheet.svg') -7px -0px;
+                    }
+                    &.subscription{
+                        background: url('../../../../explara/image/menu-spritesheet.svg') -7px -48px;
+                    }
+                    &.payment-link {
+                        background: url('../../../../explara/image/menu-spritesheet.svg') -7px -95px;
+                    }
+                    &.email-marketing{
+                        background: url('../../../../explara/image/menu-spritesheet.svg') -7px -144px;
+                    }
+                    &.invoicing{
+                        background: url('../../../../explara/image/menu-spritesheet.svg') -7px -192px;
+                    }
+                    &.crowdfunding-page{
+                        background: url('../../../../explara/image/menu-spritesheet.svg') -7px -240px;
+                    }
+                    &.fundraising-management{
+                        background: url('../../../../explara/image/menu-spritesheet.svg') -7px -568px;
+                    }
+                    &.donor-management{
+                        background: url('../../../../explara/image/menu-spritesheet.svg') -7px -335px;
+                    }
+                    &.email-campaigns{
+                        background: url('../../../../explara/image/menu-spritesheet.svg') -7px -664px;
+                    }
+                    &.group-events{
+                        background: url('../../../../explara/image/menu-spritesheet.svg') -7px -616px;
+                    }
+                    &.name-badge{
+                        background: url('../../../../explara/image/menu-spritesheet.svg') -7px -713px;
+                    }
+                    &.survey{
+                        background: url('../../../../explara/image/menu-spritesheet.svg') -7px -761px;
+                    }
+                    &.event-mobile-app{
+                        background: url('../../../../explara/image/menu-spritesheet.svg') -7px -809px;
+                    }
+                    &.check-in-app{
+                        background: url('../../../../explara/image/menu-spritesheet.svg') -7px -1574px;
+                    }
+                    &.point-of-sale{
+                        background: url('../../../../explara/image/menu-spritesheet.svg') -7px -857px;
+                    }
+                    &.submix{
+                        background: url('../../../../explara/image/menu-spritesheet.svg') -7px -905px;
+                    }
+                    &.merchandise{
+                        background: url('../../../../explara/image/menu-spritesheet.svg') -7px -952px;
+                    }
+                    &.stay-travel{
+                        background: url('../../../../explara/image/menu-spritesheet.svg') -7px -1002px;
+                    }
+                }
+              }
+              img {
+                display: flex;
+                margin: auto;
+                margin-bottom: 10px;
+                height: 40px;
+                width: 40px;
+                object-fit: contain;
+              }
+              p {
+                @include Fontformat($fontstyle-headline, 12px, $weight: 500);
+                color: #000000;
+                text-align: center;
+                margin: 0;
+              }
+            }
+            .submenu{
+              border-bottom: 1px solid #ccc;
+              margin-bottom: font-units(10px);
+              p{
+                  @include Fontformat($fontstyle-headline, 10px, $height: 1.1);
+                  color: #000000;
+                  margin-bottom: 5px;
+              }
+          }
+          }
+          &.resources-menu {
+            min-height: auto;
+            .list{
+                padding: font-units(10px);
+                margin-top: font-units(20px);
+                cursor: pointer;
+                text-decoration: none;
+                &:hover{
+                    background-color: #ffffff;
+                }
+                .image{
+                    height: font-units(44px);
+                    width: font-units(44px);
+                    background-repeat: no-repeat;
+                    margin-right: font-units(15px);
+                    &.help{
+                        background: url('../../../../explara/image/menu-spritesheet.svg') -7px -1240px;
+                    }
+                    &.blog{
+                        background: url('../../../../explara/image/menu-spritesheet.svg') -7px -1337px;
+                    }
+                }
+                p{
+                    @include Fontformat($fontstyle-headline, 15px, $weight: 500, $height: 1.2);
+                    color: #212121;
+                    margin: 0;
+                }
+            }
+          }
+        }
+        &.allexplara {
+          .card {
+            a{
+              font-size: font-units(11px);
+              background-color: #f4f3ff;
+            }
+            &-body {
+              padding: 15px;
+            }
+          }
+          .allexplara-product {
+            .card {
+              &-body {
+                padding: 15px;
+                background-color: #ffffff;
+                .accordion {
+                  .card {
+                    &-header {
+                      a {
+                        padding: 10px;
+                        display: flex;
+                      }
+                    }
+                    &-body {
+                      margin-top: 0;
+                      background-color: #f4f3ff;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+    .fixed-action{
+        margin-bottom: 20px;
+        .login-btn {
+            @include Fontformat($fontstyle-headline, 14px, $weight: 500);
+            text-decoration: none;
+            color: #242424;
+            cursor: pointer;
+            margin: 0;
+        }
+        .signup-btn {
+            @include FillButton(140px, 20px, #7273d7, 14px, #ffffff);
+            @include rem(padding, 9px 24px);
+            height: font-units(32px);
+            text-decoration: none;
+            margin-left: font-units(20px);
+        }
+    }
+}

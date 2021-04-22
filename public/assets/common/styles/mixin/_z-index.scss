@@ -1,0 +1,17 @@
+$z-index: (
+    header: 1000,
+    message: 1010,
+    first-sidescreen: 900,
+    second-sidescreen: 950,
+    sidescreen-footer: 900,
+    first-sidescreen-backdrop: 800,
+    second-sidescreen-backdrop: 900,
+);
+
+@function z-index($key){
+    @return map-get($z-index, $key);
+}
+
+@mixin z-index($key){
+    z-index: z-index($key);
+}

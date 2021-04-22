@@ -1,0 +1,168 @@
+@mixin sidescreen($space, $height, $size: '.sd-md', $paddings: 24px, $x: 320px, $icon-size: 24px, $background: #fff) {
+    #{$size} {
+        @if $size=='.sd-sm' {
+            $distance: -70%;
+            &.sidescreen {
+                right: $distance;
+                width: -($distance);
+                @media (max-width: 575.98px) {
+                    right: -100%;
+                    width: 100%;
+                }
+                @media (min-width: 576px) and (max-width: 1200px) {
+                    right: -100%;
+                    width: 100%;
+                }
+            }
+        }
+        @else if $size=='.sd-xsm' {
+            $distance: -40%;
+            &.sidescreen {
+                right: $distance;
+                width: -($distance);
+                @media (max-width: 575.98px) {
+                    right: -100%;
+                    width: 100%;
+                }
+                @media (min-width: 576px) and (max-width: 1200px) {
+                    right: -70%;
+                    width: 70%;
+                }
+            }
+        }
+        @else {
+            $distance: -80%;
+            &.sidescreen {
+                right: $distance;
+                width: -($distance);
+                @media (max-width: 575.98px) {
+                    width: 100%;
+                }
+                @media (min-width: 576px) and (max-width: 1200px) {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    .sidescreen {
+        position: fixed;
+        top: $space;
+        height: calc(100% - #{$space});
+        overflow: {
+            x: hidden;
+            y: auto;
+        }
+        @include z-index(first-sidescreen);
+        @include box-shadow(0 0 20px rgba(0, 0, 0, 0.1));
+        @include translate3d($x, 0, 0);
+        @include transition(all 500ms ease-in-out);
+        @media (max-width: 375.98px){
+            top: 50px;
+            height: calc(100% - 50px);
+        }
+        &+.sidescreen {
+            @include z-index(second-sidescreen);
+        }
+        &.active {
+            right: 0;
+            @include translate3d(0, 0, 0);
+        }
+        .close {
+            margin: 0;
+            position: absolute;
+            right: $paddings + 17px;
+            top: $paddings;
+            z-index: 100;
+            span {
+                line-height: 0;
+                width: $icon-size;
+                height: $icon-size;
+                font-size: $icon-size;
+                cursor: pointer;
+            }
+        }
+        &-backdrop {
+            position: fixed;
+            top: 0px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.75);
+            @include transition(all 500ms ease-in-out);
+            &.in {
+                right: 0;
+                margin-top: $space;
+                @include z-index(first-sidescreen-backdrop);
+                @include translate3d(0, 0, 0);
+                @include transition(all 500ms ease-in-out);
+                &+.sidescreen-backdrop.in {
+                    @include z-index(second-sidescreen-backdrop);
+                }
+            }
+        }
+        &-wrapper {
+            width: 100%;
+            height: 100%;
+            float: left;
+            position: relative;
+        }
+        &-body {
+            width: 100%;
+            float: left;
+            height: calc(100% - #{$height});
+            @include scrollbar();
+            overflow-y: auto;
+            background-color: #ffffff;
+            &.full {
+                height: 100%;
+            }
+            @content;
+        }
+        &-content {
+            float: left;
+            width: 100%;
+        }
+        &-title {
+            padding: 24px 20px;
+            background-color: #f0f3f7;
+            h4 {
+                @include Fontformat($fontstyle-headline, 22px, $spacing: 1px);
+                color: #242424;
+                margin: 0;
+            }
+            p {
+                @include Fontformat($fontstyle-text, 13px);
+                color: #757575;
+            }
+            .action{
+                margin-left: auto;
+                .btn-action{
+                    @include LineButton(110px, 4px, $button, 13px, #242424);
+                    height: font-units(30px);
+                }
+            }
+        }
+        &-footer {
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            height: $height;
+            background-color: #fff;
+            padding: 0 ($paddings + 12px);
+            display: flex;
+            align-items: center;
+            @include z-index(first-sidescreen);
+            @include box-shadow(0 -1px 5px 0 rgba(0, 0, 0, 0.11), 0 0 1px 0 rgba(0, 0, 0, 0.26));
+            .save-btn {
+                @include FillButton(110px, 0, $button, 13px, #ffffff);
+                height: font-units(30px);
+                margin-right: font-units(10px);
+            }
+            .cancel-btn {
+                @include LineButton(110px, 0, $button, 13px, #242424);
+                height: font-units(30px);
+            }
+        }
+    }
+}
