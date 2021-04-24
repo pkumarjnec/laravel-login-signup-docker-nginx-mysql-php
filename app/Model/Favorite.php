@@ -34,7 +34,7 @@ class Favorite extends Model
      **/
     static function search(array $data) {
         if(empty($data)){
-            return new \stdClass();
+            return false;
         }
         $fav = Favorite::NotNull();
         foreach($data as $key=>$value){
@@ -67,7 +67,7 @@ class Favorite extends Model
      **/
     static function count(array $data) {
         if(empty($data)){
-            return new \stdClass();
+            return false;
         }
         $fav = Favorite::NotNull();
         foreach($data as $key=>$value){
@@ -84,7 +84,7 @@ class Favorite extends Model
      **/
     static function searchAll(int $accountId) {
         if($accountId == ''){
-            return new \stdClass();
+            return false;
         }
         $fav = Favorite::where('accounts_id',$accountId)->with('rate')->get();
         return $fav;

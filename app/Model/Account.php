@@ -79,7 +79,7 @@ class Account extends Authenticatable
      **/
     static function search(array $data) {
         if(empty($data)){
-            return new \stdClass();
+            return false;
         }
         $account = Account::NotNull();
         foreach($data as $key=>$value){
@@ -125,7 +125,7 @@ class Account extends Authenticatable
             $account->save();
             return $account;
         }
-        return new \stdClass();
+        return false;
     }
 
     /**

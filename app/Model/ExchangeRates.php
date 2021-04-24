@@ -26,7 +26,7 @@ class ExchangeRates extends Model
      **/
     static function search(array $data) {
         if(empty($data)){
-            return new \stdClass();
+            return false;
         }
         $rate = ExchangeRates::NotNull();
         foreach($data as $key=>$value){
@@ -67,6 +67,6 @@ class ExchangeRates extends Model
             $rate->save();
             return $rate;
         }
-        return new \stdClass();
+        return false;
     }
 }

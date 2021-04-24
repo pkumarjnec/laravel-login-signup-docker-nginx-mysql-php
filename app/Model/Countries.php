@@ -26,7 +26,7 @@ class Countries extends Model
      **/
     static function search(array $data) {
         if(empty($data)){
-            return new \stdClass();
+            return false;
         }
         $country = Countries::NotNull();
         foreach($data as $key=>$value){
