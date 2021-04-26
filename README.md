@@ -12,7 +12,13 @@ docker-compose up -d redis
 docker-compose up -d app
 docker-compose up -d webserver
 ```
-   
+## Migration
+
+```bash   
+php artisan migrate 
+php artisan migrate:rollback   
+```
+
 ## Usage
 
 ```
