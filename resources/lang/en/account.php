@@ -14,6 +14,7 @@ return [
     'fav_created'           => 'Favorite saved successfully',
     'fav_same'              => 'Same Country can not be saved as Favorite',
     'invalid_token'         => 'Invalid Access Token',
+    'invalid_document_format' => 'Invalid document format. Please upload pdf, doc, image file'
 ];
 
 ?>

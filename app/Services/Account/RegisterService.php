@@ -15,7 +15,11 @@
 namespace App\Services\Account;
 
 use App\Model\Account;
+use Basic\Observer\NofityUser;
 use Basic\Rules\Aws;
+use Basic\Rules\Email;
+use Basic\Observer\NotifyUser;
+use Basic\Observer\RegistrationObserver;
 use Illuminate\Support\Facades\Lang;
 
 /**
@@ -38,7 +42,7 @@ class RegisterService
      *
      * @return array
      */
-    public function register(array $data,object $file) : array
+    public function register(array $data, object $file) : array
     {
         //If Request is empty the return error
         if (empty($data)) {
@@ -70,7 +74,17 @@ class RegisterService
             $data['password'] = md5($password);
             $data['document'] = Aws::upload($file);
             $account = Account::create($data);
+
             //Send Password in email
+            $data['password'] = $password;
+            $userRegistered = new RegistrationObserver();
+            $userRegistered->attach(new NofityUser($data));
+            $userRegistered->notify();
+
+            //$email = new Email($account->emailid, $account->first_name, $data);
+            //$email->send();
+
+            //Return Message
             $message = array('status'=>'success',
                 'message'=>Lang::get('account.created'), 'code'=>200);
             return $message;

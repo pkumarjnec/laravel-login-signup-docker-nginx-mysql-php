@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Lang;
 
 class Welcome extends Mailable
 {
@@ -16,9 +17,12 @@ class Welcome extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($emailid,$password,$firstname)
     {
-        //
+        $this->emailid      = $emailid;
+        $this->password     = $password;
+        $this->firstname    = $firstname;
+        $this->subject      = str_replace('{siteName}',config('app.name'),Lang::get('email.welcome'));
     }
 
     /**
@@ -28,6 +32,7 @@ class Welcome extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->view('email.welcome')
+            ->subject($this->subject);
     }
 }

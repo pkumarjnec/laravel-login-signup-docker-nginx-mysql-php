@@ -14,6 +14,7 @@
  */
 namespace Basic\Rules;
 
+use App\Mail\Welcome;
 use Basic\Interfaces\EmailBase;
 use Illuminate\Support\Facades\Mail;
 
@@ -35,20 +36,16 @@ class Email implements EmailBase
     /**
      * Create a new Email instance
      *
-     * @param $email string emailid
-     * @param $name  string name
      * @param $data  array  email data
      *
      * @return void
      **/
-    public function __construct(string $email, string $name, array $data)
+    public function __construct(array $data)
     {
-        $this->name     = $name;
-        $this->email    = $email;
-        if ($data['type'] == 'verify') {
-            $this->emailer = new VerifyToken($data['code'], $data['first_name']);
-        } else if ($data['type'] == 'forgot') {
-            $this->emailer = new VerifyToken($data['code'], $data['first_name']);
+        if ($data['type'] == 'welcome') {
+            $this->name     = $data['first_name'];
+            $this->email    = $data['emailid'];
+            $this->emailer = new Welcome($data['emailid'], $data['password'], $data['first_name']);
         }
     }
 
