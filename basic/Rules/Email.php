@@ -45,7 +45,7 @@ class Email implements EmailBase
         if ($data['type'] == 'welcome') {
             $this->name     = $data['first_name'];
             $this->email    = $data['emailid'];
-            $this->emailer = new Welcome($data['emailid'], $data['password'], $data['first_name']);
+            $this->emailer  = new Welcome($data);
         }
     }
 

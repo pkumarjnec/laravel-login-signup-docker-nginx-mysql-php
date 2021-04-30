@@ -36,7 +36,7 @@ function login(){
                 showMessage(response.message,'valid');
                 $('#login-btn').html('Redirecting <span class="mr-2"><i class="fas fa-spinner fa-spin"></i></span>');
                 setTimeout(function(){
-                    window.location.href = response.redirectUrl;
+                    window.location.href = response.redirectUrl+'?token='+response.token;
                 }, 1000);
             }else {
                 showMessage(response.message,'invalid');
@@ -79,12 +79,23 @@ function signup(){
         statusCode: {
             413:function (response) {
                 $('#signup-btn').html('Sign up');
-                showMessage('Invalid request','invalid');
+                $.each(response.responseJSON.errors, function( index, value ) {
+                    showMessage(value,'invalid');
+                });
+            },
+            422:function (response) {
+                $('#signup-btn').html('Sign up');
+                $.each(response.errors, function( index, value ) {
+                    showMessage(value,'invalid');
+                });
             },
         },
-        error: function(){
+        error: function(response, exception){
             $('#signup-btn').html('Sign up');
-            showMessage('Invalid request','invalid');
+            //showMessage('Please check mandatory fields & file format','invalid');
+            $.each(response.responseJSON.errors, function( index, value ) {
+                showMessage(value,'invalid');
+            });
         },
         timeout: 300000,
         success: function(response){

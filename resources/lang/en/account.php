@@ -5,6 +5,7 @@ return [
     'invalid_login'         => 'Invalid Username & Password.',
     'not_exist'             => 'Account not exist',
     'already_exist'         => 'Account already exists.',
+    'mobile_exist'          => 'Mobile no already exists.',
     'empty_request'         => 'Request is empty',
     'created'               => 'Your account is created. Please check your email for login credentials',
     'updated'               => 'Your profile is updated.',
@@ -14,6 +15,7 @@ return [
     'fav_created'           => 'Favorite saved successfully',
     'fav_same'              => 'Same Country can not be saved as Favorite',
     'invalid_token'         => 'Invalid Access Token',
+    'successful_login'      => 'Login Successfully',
     'invalid_document_format' => 'Invalid document format. Please upload pdf, doc, image file'
 ];
 

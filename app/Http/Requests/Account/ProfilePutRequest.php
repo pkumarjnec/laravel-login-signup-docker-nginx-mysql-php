@@ -93,6 +93,7 @@ class ProfilePutRequest extends FormRequest
             'emailid.required' => Lang::get('account.invalid_email_id'),
             'password.required' => Lang::get('account.invalid_password'),
             'document.required' => Lang::get('account.document_empty'),
+            'document.mimes'=> Lang::get('account.invalid_document_format')
         ];
     }
 }

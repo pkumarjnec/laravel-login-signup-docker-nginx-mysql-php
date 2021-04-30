@@ -61,34 +61,47 @@ class RegisterService
             $message = array('status'=>'error',
                 'message'=>Lang::get('account.already_exist'), 'code'=>200);
             return $message;
-        } else {
-            //Register with input details
-            if (isset($data['name']) && $data['name'] != '') {
-                $tName = explode(' ', $data['name']);
-                $data['first_name'] = $tName[0];
-                $data['last_name'] = $tName[1];
+        } else if($data['mobile_no'] != ''){
+            //Check if Account already exist using email id
+            $account = Account::search(array('mobile_no'=>$data['mobile_no']));
+            if (!empty($account)) {
+                //If Account already exist return error
+                $message = array('status'=>'error',
+                    'message'=>Lang::get('account.mobile_exist'), 'code'=>200);
+                return $message;
             }
-
-            //Created Dummy logic to generate random Password
-            $password = 'logical';//rand(1000000,200000000);
-            $data['password'] = md5($password);
-            $data['document'] = Aws::upload($file);
-            $account = Account::create($data);
-
-            //Send Password in email
-            $data['password'] = $password;
-            $userRegistered = new RegistrationObserver();
-            $userRegistered->attach(new NofityUser($data));
-            $userRegistered->notify();
-
-            //$email = new Email($account->emailid, $account->first_name, $data);
-            //$email->send();
-
-            //Return Message
-            $message = array('status'=>'success',
-                'message'=>Lang::get('account.created'), 'code'=>200);
-            return $message;
         }
+
+        //Register with input details
+        if (isset($data['name']) && $data['name'] != '') {
+            $tName = explode(' ', $data['name']);
+            $data['first_name'] = $tName[0];
+            $data['last_name'] = $tName[1];
+        }
+
+        //Created Dummy logic to generate random Password
+        $password = rand(1000000,200000000);
+        $data['password'] = md5($password);
+        $data['document'] = Aws::upload($file);
+        $account = Account::create($data);
+
+        //Send Password in email
+        $data['password'] = $password;
+        $data['type'] = 'welcome';
+
+        //Registration Observer trigger Email Sending
+        $userRegistered = new RegistrationObserver();
+        $userRegistered->attach(new NofityUser($data));
+        $userRegistered->notify();
+
+        //Normal Email Sending
+        //$email = new Email($account->emailid, $account->first_name, $data);
+        //$email->send();
+
+        //Return Message
+        $message = array('status'=>'success',
+            'message'=>Lang::get('account.created'), 'code'=>200);
+        return $message;
     }
 
 }

@@ -69,7 +69,7 @@ class CountryController extends Controller
      **/
     public function import() : array
     {
-        $response       = $this->service->import();
+        $this->service->import();
         return array('status'=>'success');
     }
 }

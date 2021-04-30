@@ -29,13 +29,17 @@ Route::get('/login', function () {
     return view('external/login',$seo);
 })->name('login');
 
-Route::get('/dashboard', function () {
-    $seo  = \Illuminate\Support\Facades\Lang::get('seo.dashboard');
-    return view('internal/dashboard',$seo);
+Route::get('/dashboard', function (\Illuminate\Http\Request $request) {
+    $token = $request->get('token');
+    $param = \Illuminate\Support\Facades\Lang::get('seo.dashboard');
+    $param['token'] = $token;
+    return view('internal/dashboard',$param);
 })->name('dashboard');
 
-Route::get('/profile', function () {
-    $seo  = \Illuminate\Support\Facades\Lang::get('seo.dashboard');
-    return view('internal/profile',$seo);
+Route::get('/profile', function (\Illuminate\Http\Request $request) {
+    $token = $request->get('token');
+    $param  = \Illuminate\Support\Facades\Lang::get('seo.dashboard');
+    $param['token'] = $token;
+    return view('internal/profile',$param);
 })->name('profile');
 

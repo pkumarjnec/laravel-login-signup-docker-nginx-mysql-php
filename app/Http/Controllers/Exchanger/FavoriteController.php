@@ -35,7 +35,7 @@ class FavoriteController extends Controller
      *
      * @var object
      **/
-    protected $service;
+    protected $favService;
     /**
      * Assign country service object
      *
@@ -51,7 +51,7 @@ class FavoriteController extends Controller
      **/
     public function __construct(FavoriteService $favoriteService, CountryService $countryService)
     {
-        $this->service = $favoriteService;
+        $this->favService = $favoriteService;
         $this->countryService = $countryService;
     }
 
@@ -65,7 +65,7 @@ class FavoriteController extends Controller
     public function search(Request $request) : array
     {
         $accountId = $request->get('account_id');
-        $response = $this->service->myFavorite($accountId);
+        $response = $this->favService->myFavorite($accountId);
         return array('status'=>'success','rate'=>$response,'total'=>count($response));
     }
     /**
@@ -80,7 +80,7 @@ class FavoriteController extends Controller
         $from = $request->input('from');
         $to = $request->input('to');
         $accountId = $request->get('account_id');
-        $response = $this->service->save($from,$to,$accountId);
+        $response = $this->favService->save($from,$to,$accountId);
         return $response;
     }
 }

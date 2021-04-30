@@ -11,10 +11,10 @@
             <div class="row no-gutters">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                     <div class="row no-gutters title">
-                        <h3 class="top">Welcome {{Auth::user()->first_name}}</h3>
+                        <h3 class="top">Welcome</h3>
                     </div>
                     <div class="row no-gutters">
-                        <a href="/profile">Update Profile</a>
+                        <a href="/profile?token={{$token}}">Update Profile</a>
                     </div>
                     <hr class="hr-class1">
                 </div>
@@ -102,7 +102,7 @@
     <script src="{{asset('/external/account/js/exchanger.js').'?v='.config('app.version')}}"></script>
     <script src="{{asset('/common/js/min/field-validations.min.js')}}"></script>
     <script>
-        access_token = '{{Auth::user()->access_token}}';
+        access_token = '{{$token}}';
         $( document ).ready(function() {
             getCountryList();
             myFavorite();

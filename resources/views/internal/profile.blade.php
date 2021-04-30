@@ -15,6 +15,7 @@
                             @csrf
                             <div class="row no-gutters align-items-sm-start title">
                                 <h4>Profile</h4>
+                                <a class="w-100 text-left" href="/dashboard?token={{$token}}">Dashboard</a>
                             </div>
                             <div class="row no-gutters field combofield">
                                 <label>Full Name <span class="red">*</span></label>
@@ -61,6 +62,6 @@
     <script src="{{asset('/external/account/js/profile.js').'?v='.config('app.version')}}"></script>
     <script src="{{asset('/common/js/min/field-validations.min.js')}}"></script>
     <script>
-        access_token = '{{Auth::user()->access_token}}';
+        access_token = '{{$token}}';
     </script>
 @endsection

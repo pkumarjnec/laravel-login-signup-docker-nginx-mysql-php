@@ -46,7 +46,7 @@ class CountryService
             if(empty($country)){
                 $temp['name'] = $value;
                 $temp['currency'] = $key;
-                $country = Countries::create($temp);
+                Countries::create($temp);
             }
         }
     }

@@ -63,6 +63,13 @@ class Dummy
             array('from'=>'GBP','to'=>'CHF','rate'=>1.28),
             array('from'=>'GBP','to'=>'EUR','rate'=>1.16),
             array('from'=>'GBP','to'=>'USD','rate'=>1.39),
+
+            array('from'=>'CHF','to'=>'USD','rate'=>1.10),
+            array('from'=>'CHF','to'=>'CAD','rate'=>1.35),
+            array('from'=>'CHF','to'=>'INR','rate'=>81.84),
+            array('from'=>'CHF','to'=>'EUR','rate'=>0.90),
+            array('from'=>'CHF','to'=>'GBP','rate'=>0.79),
+
         );
         return $rates;
     }

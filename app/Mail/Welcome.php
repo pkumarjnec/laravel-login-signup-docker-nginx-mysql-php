@@ -12,17 +12,22 @@ class Welcome extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $subject;
+    public $firstname;
+    public $emailid;
+    public $password;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($emailid,$password,$firstname)
+    public function __construct($data)
     {
-        $this->emailid      = $emailid;
-        $this->password     = $password;
-        $this->firstname    = $firstname;
-        $this->subject      = str_replace('{siteName}',config('app.name'),Lang::get('email.welcome'));
+        $this->emailid      = $data['emailid'];
+        $this->password     = $data['password'];
+        $this->firstname    = $data['first_name'];
+        $this->subject      = str_replace('{siteName}', config('app.name'), Lang::get('email.welcome'));
     }
 
     /**

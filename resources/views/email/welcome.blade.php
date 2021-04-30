@@ -26,19 +26,7 @@
     <tr>
         <td align="center" valign="top" bgcolor="#ffffff"  width="100%">
             <table cellspacing="0" cellpadding="0" width="100%">
-                <tr>
-                    <td>
-                        <center>
-                            <table cellspacing="0" cellpadding="0" width="600" class="w320" style="border-bottom: 1px solid #7273d7;">
-                                <tr>
-                                    <td valign="top" style="text-align:center; padding: 15px; min-height: 100px;">
-                                        <img width="160" src="{{asset('/images/brushkite-logo.png')}}" alt="{{config('app.name')}}">
-                                    </td>
-                                </tr>
-                            </table>
-                        </center>
-                    </td>
-                </tr>
+
                 <tr>
                     <td bgcolor="#ffffff" valign="top" >
                         <div>
@@ -97,7 +85,7 @@
                                                 <tr>
                                                     <td>
                                                         <h3 style="color:#181818; text-align: center; font-size: 30px;">Emailid : {{$emailid}}</h3>
-                                                        <h3 style="color:#181818; text-align: center; font-size: 30px;">Password : {{$passowrd}}</h3>
+                                                        <h3 style="color:#181818; text-align: center; font-size: 30px;">Password : {{$password}}</h3>
 
                                                         <br>
                                                     </td>
